@@ -1,0 +1,6 @@
+name = "reedcouklite"
+type = "javascript"
+account_id = "8a69092c2dc815c05f705ceb02f2e2b5"
+workers_dev = true
+route = ""
+zone_id = "dc4f5fdf8d760df76aaaefa721161cd3"
