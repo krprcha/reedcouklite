@@ -1,0 +1,21 @@
+name: Deploy Worker
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v1
+    - name: GitHub Action for Cloudflare Workers
+      uses: cloudflare/serverless-action@v1.1
+      env:
+        working-directory: ./worker
+        CLOUDFLARE_AUTH_EMAIL: ${{ secrets.CLOUDFLARE_AUTH_EMAIL }}
+        CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        CLOUDFLARE_AUTH_KEY: ${{ secrets.CLOUDFLARE_AUTH_KEY }}
+        CLOUDFLARE_SCRIPT_NAME: ${{ secrets.CLOUDFLARE_SCRIPT_NAME }}
+        SLS_DEBUG: "*"
